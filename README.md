@@ -1,6 +1,6 @@
 本文介绍如何使用快捷指令结合触控功能，实现在不打开app的情况下，通过长按屏幕弹出搜题浮窗。
 
-##1. 添加Intent
+## 1. 添加Intent
 
 我们需要在工程内引入**Intents Extension**、**Intents UI Extension**。其中**Intents Extension**用于处理快捷指令，**Intents UI Extension**用于设置快捷指令触发后的浮窗UI。
 ![添加Extension](https://upload-images.jianshu.io/upload_images/4890409-23129d2dfdd2e200.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
@@ -42,7 +42,7 @@
 
 ![Xcode14 note](https://upload-images.jianshu.io/upload_images/4890409-88691487fb86c073.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-##2. 代码实现要点
+## 2. 代码实现要点
 现在我们已经配置完快捷指令了，之后需要在代码层面进行处理。
 
 ### 2.1 AppDelegate
@@ -194,7 +194,7 @@ typedef NS_ENUM(NSInteger, SearchQuestionIntentResponseCode) {
 @end
 ```
 
-##3. 生成快捷指令iCloud链接
+## 3. 生成快捷指令iCloud链接
 打开 **快捷指令app**，在我们的app下能看到所添加 “**搜题🔍**”。我们新建一个快捷指令，分别添加“**截屏**”、“**搜题🔍**”，如下图。可以看到截屏的结果已经作为“**搜题🔍**”的图片参数输入了。“**运行时显示**”打开时才能显示Siri浮窗。我们点击分享，生成快捷指令的iCloud链接，之后我们就可以通过iCloud链接引导用户快速地构建这个指令。我们生成的链接是：https://www.icloud.com/shortcuts/3b76dbdcd840459fa4819a7974b6b08e，用 **UIApplication** 的```openURL:options:completionHandler:```方法打开它。
 
 ![构造快捷指令](https://upload-images.jianshu.io/upload_images/4890409-d01b1c0de792c046.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
@@ -208,7 +208,7 @@ typedef NS_ENUM(NSInteger, SearchQuestionIntentResponseCode) {
 
 ![添加窗口](https://upload-images.jianshu.io/upload_images/4890409-cfac5d2ef0a64ca5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-##4. 关联触控
+## 4. 关联触控
 打开 **设置-辅助功能-触控-辅助触控** 页面，打开**辅助触控**功能，在 **自定义操作** 中选择一个手势，比如长按，选中我们的快捷指令“**搜题🔍**”。之后我们就可以在手机任意页面，通过长按触控球来进行搜题了。
 
 ![效果展示](https://upload-images.jianshu.io/upload_images/4890409-70cf8278f3400f96.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
