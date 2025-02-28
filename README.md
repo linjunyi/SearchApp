@@ -194,6 +194,18 @@ typedef NS_ENUM(NSInteger, SearchQuestionIntentResponseCode) {
 @end
 ```
 
+### 2.4 打包
+主app、Intents、IntentsUI都需要各自的*bundle identifier*，需要在apple developer后台添加对应的Identifier，并使用同一个签名证书生成各自的Profiles。
+在build或者打包的时候，需要让主app和Extension的 **Signing & Capability**下 **Signing Certificate** 保持一致，同时 **Build Settings** 下的 **Architectures** 的配置也应保持一致。
+![Architectures配置示例](https://upload-images.jianshu.io/upload_images/4890409-f29e5958e61f5d3e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+否则当主app和Extension引入相同的第三方framework时，就会由于主app和Extentsion的签名证书或架构类型的不同而导致签名失败。
+例如报错：*Embedded binary is not signed with the same certificate as the parent app. Verify the embedded binary target's code sign settings match the parent app's.*
+
+打包之后，Intents 和 IntentsUI 是作为扩展包嵌入到主程序包中的，如下图
+![ipa包](https://upload-images.jianshu.io/upload_images/4890409-d3fcb6cd86bb101b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+我们可以在主app的 *Build Phases* 下的 *Embed Foundation Extensions* 查看我们当前的扩展包，它们都是Embed Without Signing的方式嵌入的，因为它们自己已经进行了签名，不需要主app再次对它们进行签名。
+![Build Phases.png](https://upload-images.jianshu.io/upload_images/4890409-a163e29608ac1f73.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ## 3. 生成快捷指令iCloud链接
 打开 **快捷指令app**，在我们的app下能看到所添加 “**搜题🔍**”。我们新建一个快捷指令，分别添加“**截屏**”、“**搜题🔍**”，如下图。可以看到截屏的结果已经作为“**搜题🔍**”的图片参数输入了。“**运行时显示**”打开时才能显示Siri浮窗。我们点击分享，生成快捷指令的iCloud链接，之后我们就可以通过iCloud链接引导用户快速地构建这个指令。我们生成的链接是：https://www.icloud.com/shortcuts/3b76dbdcd840459fa4819a7974b6b08e，用 **UIApplication** 的```openURL:options:completionHandler:```方法打开它。
 
