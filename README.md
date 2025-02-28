@@ -202,7 +202,9 @@ typedef NS_ENUM(NSInteger, SearchQuestionIntentResponseCode) {
 例如报错：*Embedded binary is not signed with the same certificate as the parent app. Verify the embedded binary target's code sign settings match the parent app's.*
 
 打包之后，Intents 和 IntentsUI 是作为扩展包嵌入到主程序包中的，如下图
+
 ![ipa包](https://upload-images.jianshu.io/upload_images/4890409-d3fcb6cd86bb101b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 我们可以在主app的 *Build Phases* 下的 *Embed Foundation Extensions* 查看我们当前的扩展包，它们都是Embed Without Signing的方式嵌入的，因为它们自己已经进行了签名，不需要主app再次对它们进行签名。
 ![Build Phases.png](https://upload-images.jianshu.io/upload_images/4890409-a163e29608ac1f73.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
