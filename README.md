@@ -209,7 +209,7 @@ typedef NS_ENUM(NSInteger, SearchQuestionIntentResponseCode) {
 ![Build Phases.png](https://upload-images.jianshu.io/upload_images/4890409-a163e29608ac1f73.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ## 3. 生成快捷指令iCloud链接
-打开 **快捷指令app**，在我们的app下能看到所添加 “**搜题🔍**”。我们新建一个快捷指令，分别添加“**截屏**”、“**搜题🔍**”，如下图。可以看到截屏的结果已经作为“**搜题🔍**”的图片参数输入了。“**运行时显示**”打开时才能显示Siri浮窗。我们点击分享，生成快捷指令的iCloud链接，之后我们就可以通过iCloud链接引导用户快速地构建这个指令。我们生成的链接是：https://www.icloud.com/shortcuts/3b76dbdcd840459fa4819a7974b6b08e，用 **UIApplication** 的```openURL:options:completionHandler:```方法打开它。
+打开 **快捷指令app**，在我们的app下能看到所添加 “**搜题🔍**”。我们新建一个快捷指令，分别添加“**截屏**”、“**搜题🔍**”，如下图。可以看到截屏的结果已经作为“**搜题🔍**”的图片参数输入了。“**运行时显示**”打开时才能显示Siri浮窗。我们点击分享，生成快捷指令的iCloud链接，之后我们就可以通过iCloud链接引导用户快速地构建这个指令。我们生成的链接是：https://www.icloud.com/shortcuts/3b76dbdcd840459fa4819a7974b6b08e ，用 **UIApplication** 的```openURL:options:completionHandler:```方法打开它。
 
 ![构造快捷指令](https://upload-images.jianshu.io/upload_images/4890409-d01b1c0de792c046.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
