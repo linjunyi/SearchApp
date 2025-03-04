@@ -140,7 +140,7 @@ typedef NS_ENUM(NSInteger, SearchQuestionIntentResponseCode) {
 接下来我们需要修改**IntentsUI**的代码，来修改我们Siri浮窗的展示。系统对Siri浮窗的UI限制较多，我们只被允许修改中间的部分内容。这部分内容由**IntentViewController**提供。加载流程如下图
 ![IntentsUI加载流程](https://upload-images.jianshu.io/upload_images/4890409-dee31a64385257ad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-我们实现```configureViewForParameters:ofInteraction:interactiveBehavior:context:completion:```来定制我们的ui，[*参考intentsUI文档*](https://developer.apple.com/documentation/intentsui/inuihostedviewcontrolling/configureview(for:of:interactivebehavior:context:completion:)?language=objc)。对于不同的Intent，我们应该实现不同的ViewController，并经其添加到self.view当中。在viewDidLoad方法当中，我们添加了一个毛玻璃效果的view，这是因为在系统的Siri浮窗下有一些系统自带的UI(比如勾号、分割线等)，这些不由我们控制，所以添加毛玻璃将其覆盖以美化UI效果。
+我们实现```configureViewForParameters:ofInteraction:interactiveBehavior:context:completion:```来定制我们的ui，[*参考intentsUI文档*](https://developer.apple.com/documentation/intentsui/inuihostedviewcontrolling/configureview(for:of:interactivebehavior:context:completion:)?language=objc)。对于不同的Intent，我们应该实现不同的ViewController，并经其添加到self.view当中。
 
 需要注意的是，受苹果限制，我们添加到siri浮窗中的自定义视图不支持触摸事件，因为无法实现点击按钮、滑动等效果。但是当用户点击自定义视图的整体部分时，系统会跳转到我们的app内部。
 ```
@@ -149,18 +149,11 @@ typedef NS_ENUM(NSInteger, SearchQuestionIntentResponseCode) {
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor clearColor];
-    
-    // 添加毛玻璃效果，覆盖住系统自带的分割线和打勾图标
-    UIBlurEffectStyle style = UIBlurEffectStyleLight;
-    if (@available(iOS 13.0, *)) {
-        style = UIBlurEffectStyleSystemMaterialLight;
+    UIView *view = self.view;
+    while (view) {
+        view.backgroundColor = [UIColor clearColor];
+        view = view.superview;
     }
-    UIBlurEffect *effect = [UIBlurEffect effectWithStyle:style];
-    UIVisualEffectView *bgView = [[UIVisualEffectView alloc] initWithEffect:effect];
-    bgView.frame = self.view.bounds;
-    bgView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    [self.view addSubview:bgView];
 }
 
 #pragma mark - INUIHostedViewControlling
