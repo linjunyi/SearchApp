@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A73CAD882D76E13E00E36D37 /* KeychainGroupService.m in Sources */ = {isa = PBXBuildFile; fileRef = A73CAD872D76E13E00E36D37 /* KeychainGroupService.m */; };
+		A73CAD892D76E13E00E36D37 /* KeychainGroupService.m in Sources */ = {isa = PBXBuildFile; fileRef = A73CAD872D76E13E00E36D37 /* KeychainGroupService.m */; };
 		A7A6E8BB2D6ED39D003643D1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A6E8BA2D6ED39D003643D1 /* AppDelegate.m */; };
 		A7A6E8C12D6ED39D003643D1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A6E8C02D6ED39D003643D1 /* ViewController.m */; };
 		A7A6E8C62D6ED39E003643D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7A6E8C52D6ED39E003643D1 /* Assets.xcassets */; };
@@ -59,6 +61,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A73CAD862D76E13E00E36D37 /* KeychainGroupService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainGroupService.h; sourceTree = "<group>"; };
+		A73CAD872D76E13E00E36D37 /* KeychainGroupService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainGroupService.m; sourceTree = "<group>"; };
+		A73CAD8A2D76E1C000E36D37 /* SearchApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SearchApp.entitlements; sourceTree = "<group>"; };
+		A73CAD8B2D76EC5300E36D37 /* SearchIntentUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SearchIntentUI.entitlements; sourceTree = "<group>"; };
 		A7A6E8B62D6ED39D003643D1 /* SearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7A6E8B92D6ED39D003643D1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A7A6E8BA2D6ED39D003643D1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -113,9 +119,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A73CAD852D76E12000E36D37 /* IntentSupport */ = {
+			isa = PBXGroup;
+			children = (
+				A73CAD862D76E13E00E36D37 /* KeychainGroupService.h */,
+				A73CAD872D76E13E00E36D37 /* KeychainGroupService.m */,
+			);
+			path = IntentSupport;
+			sourceTree = "<group>";
+		};
 		A7A6E8AD2D6ED39D003643D1 = {
 			isa = PBXGroup;
 			children = (
+				A73CAD852D76E12000E36D37 /* IntentSupport */,
 				A7A6E8B82D6ED39D003643D1 /* SearchApp */,
 				A7A6E8DA2D6ED56D003643D1 /* SearchIntent */,
 				A7A6E91F2D6F2264003643D1 /* SearchIntentUI */,
@@ -137,6 +153,7 @@
 		A7A6E8B82D6ED39D003643D1 /* SearchApp */ = {
 			isa = PBXGroup;
 			children = (
+				A73CAD8A2D76E1C000E36D37 /* SearchApp.entitlements */,
 				A7A6E8B92D6ED39D003643D1 /* AppDelegate.h */,
 				A7A6E8BA2D6ED39D003643D1 /* AppDelegate.m */,
 				A7A6E8BF2D6ED39D003643D1 /* ViewController.h */,
@@ -174,6 +191,7 @@
 		A7A6E91F2D6F2264003643D1 /* SearchIntentUI */ = {
 			isa = PBXGroup;
 			children = (
+				A73CAD8B2D76EC5300E36D37 /* SearchIntentUI.entitlements */,
 				A7A6E9202D6F2264003643D1 /* IntentViewController.h */,
 				A7A6E9212D6F2264003643D1 /* IntentViewController.m */,
 				A7A6E9232D6F2264003643D1 /* MainInterface.storyboard */,
@@ -313,6 +331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A73CAD882D76E13E00E36D37 /* KeychainGroupService.m in Sources */,
 				A7A6E8C12D6ED39D003643D1 /* ViewController.m in Sources */,
 				A7A6E8BB2D6ED39D003643D1 /* AppDelegate.m in Sources */,
 				A7A6E8FC2D6ED59E003643D1 /* Intents.intentdefinition in Sources */,
@@ -337,6 +356,7 @@
 				A7A6E9302D6F2E94003643D1 /* Intents.intentdefinition in Sources */,
 				A7A6E9222D6F2264003643D1 /* IntentViewController.m in Sources */,
 				A7A6E92F2D6F2446003643D1 /* SearchQuestionResultViewController.m in Sources */,
+				A73CAD892D76E13E00E36D37 /* KeychainGroupService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,9 +516,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SearchApp/SearchApp.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N6S7VM347S;
+				DEVELOPMENT_TEAM = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SearchApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "浮窗搜题";
@@ -512,8 +535,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fenbi.ape.searchapp.SearchApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fenbi.share.searchDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -524,9 +548,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SearchApp/SearchApp.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N6S7VM347S;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SearchApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "浮窗搜题";
@@ -540,8 +566,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fenbi.ape.searchapp.SearchApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fenbi.share.searchDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -550,9 +577,10 @@
 		A7A6E8F82D6ED56E003643D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N6S7VM347S;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SearchIntent/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = SearchIntent;
@@ -564,8 +592,9 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fenbi.ape.searchapp.SearchApp.SearchIntent;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fenbi.share.searchDemo.intents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -575,9 +604,10 @@
 		A7A6E8F92D6ED56E003643D1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N6S7VM347S;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SearchIntent/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = SearchIntent;
@@ -589,8 +619,9 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fenbi.ape.searchapp.SearchApp.SearchIntent;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fenbi.share.searchDemo.intents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -600,9 +631,12 @@
 		A7A6E92B2D6F2264003643D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = SearchIntentUI/SearchIntentUI.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N6S7VM347S;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = N6S7VM347S;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SearchIntentUI/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = SearchIntentUI;
@@ -614,8 +648,10 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fenbi.ape.searchapp.SearchApp.SearchIntentUI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fenbi.share.search.intentsUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "search intentUI development";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -625,9 +661,12 @@
 		A7A6E92C2D6F2264003643D1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = SearchIntentUI/SearchIntentUI.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N6S7VM347S;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = N6S7VM347S;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SearchIntentUI/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = SearchIntentUI;
@@ -639,8 +678,10 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fenbi.ape.searchapp.SearchApp.SearchIntentUI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fenbi.share.search.intentsUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "search intentUI development";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";

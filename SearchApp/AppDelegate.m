@@ -8,6 +8,7 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 #import "SearchQuestionIntent.h"
+#import "KeychainGroupService.h"
 
 @interface AppDelegate ()
 
@@ -22,6 +23,9 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
+    
+    [self shareInitDataToIntents];
+    
     return YES;
 }
 
@@ -46,6 +50,14 @@
         }
     }
     return YES;
+}
+
+- (void)shareInitDataToIntents {
+    NSArray<NSHTTPCookie *> *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
+    [KeychainGroupService saveCookie:cookies];
+    
+    NSString *appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    [KeychainGroupService saveAppVersion:appVersion];
 }
 
 @end

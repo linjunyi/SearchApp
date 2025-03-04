@@ -8,6 +8,7 @@
 #import "IntentViewController.h"
 #import "SearchQuestionIntent.h"
 #import "SearchQuestionResultViewController.h"
+#import "KeychainGroupService.h"
 
 // As an example, this extension's Info.plist has been configured to handle interactions for INSendMessageIntent.
 // You will want to replace this or add other intents as appropriate.
@@ -26,6 +27,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor clearColor];
+    
+    // 读取appVersion
+//    NSArray<NSHTTPCookie *> *cookies = [KeychainGroupService getCookie];
     
     // 添加毛玻璃效果，覆盖住系统自带的分割线和打勾图标
     UIBlurEffectStyle style = UIBlurEffectStyleLight;
