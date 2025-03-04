@@ -22,15 +22,9 @@
 
 @implementation KeychainGroupService
 
-+ (BOOL)isAppStoreVersion {
-    return [[NSBundle mainBundle].bundleIdentifier hasPrefix:@"com."];
-}
-
 + (NSString *)appIdentifierPrefix {
-#ifdef DEBUG
-    return @"V34ASSQSUT";
-#endif
-    return @"N6S7VM347S";
+#pragma mark - todo 这是Demo随机生成的id，实际开发中需要替换成开发团队id
+    return @"W4E5KLUTS8";
 }
 
 + (NSString *)groupName {
