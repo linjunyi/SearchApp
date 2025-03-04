@@ -26,21 +26,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor clearColor];
+    UIView *view = self.view;
+    while (view) {
+        view.backgroundColor = [UIColor clearColor];
+        view = view.superview;
+    }
     
     // 读取appVersion
 //    NSArray<NSHTTPCookie *> *cookies = [KeychainGroupService getCookie];
-    
-    // 添加毛玻璃效果，覆盖住系统自带的分割线和打勾图标
-    UIBlurEffectStyle style = UIBlurEffectStyleLight;
-    if (@available(iOS 13.0, *)) {
-        style = UIBlurEffectStyleSystemMaterialLight;
-    }
-    UIBlurEffect *effect = [UIBlurEffect effectWithStyle:style];
-    UIVisualEffectView *bgView = [[UIVisualEffectView alloc] initWithEffect:effect];
-    bgView.frame = self.view.bounds;
-    bgView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    [self.view addSubview:bgView];
 }
 
 #pragma mark - INUIHostedViewControlling

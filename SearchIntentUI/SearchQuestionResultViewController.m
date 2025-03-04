@@ -84,7 +84,7 @@
     if (@available(iOS 13.0, *)) {
         [self p_beginSearch];
     } else {
-        [self updateError:@"浮窗搜题支持 iOS 13.0以上版本~"];
+        [self updateError:@"浮窗搜题仅支持 iOS 13.0以上版本~"];
     }
 }
 
