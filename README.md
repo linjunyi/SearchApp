@@ -286,7 +286,7 @@ typedef NS_ENUM(NSInteger, SearchQuestionIntentResponseCode) {
 
 ```
 //    NSString *urlString = @"ShortCut://create-shortCut";
-    NSString *urlString = @"https://www.icloud.com/shortcuts/3b76dbdcd840459fa4819a7974b6b08e";
+    NSString *urlString = @"https://www.icloud.com/shortcuts/40e542ab5bdc4a3084dea5e8a0616de4";
     NSURL *url = [NSURL URLWithString:urlString];
     [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
 ```
