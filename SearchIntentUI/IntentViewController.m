@@ -42,19 +42,20 @@
 - (void)configureViewForParameters:(NSSet <INParameter *> *)parameters ofInteraction:(INInteraction *)interaction interactiveBehavior:(INUIInteractiveBehavior)interactiveBehavior context:(INUIHostedViewContext)context completion:(void (^)(BOOL success, NSSet <INParameter *> *configuredParameters, CGSize desiredSize))completion {
     // Do configuration here, including preparing views and calculating a desired size for presentation.
     
+    CGSize desiredSize = [self extensionContext].hostedViewMaximumAllowedSize;
     if ([interaction.intent isKindOfClass:[SearchQuestionIntent class]]) {
         SearchQuestionResultViewController *searchResultVC = [[SearchQuestionResultViewController alloc] initWithIntent:(SearchQuestionIntent *)interaction.intent completion:^(BOOL success, CGFloat contentHeight) {
-            CGSize size = [self extensionContext].hostedViewMaximumAllowedSize;
-            size.height = MIN(size.height, contentHeight);
+            CGSize size = CGSizeMake(desiredSize.width, MIN(desiredSize.height, contentHeight));
             if (completion) {
                 completion(success, parameters, size);
             }
         }];
         [self addChildViewController:searchResultVC];
         [self.view addSubview:searchResultVC.view];
+        searchResultVC.view.frame = CGRectMake(0, 0, desiredSize.width, desiredSize.height);
     } else {
         if (completion) {
-            completion(YES, parameters, [self desiredSize]);
+            completion(YES, parameters, desiredSize);
         }
     }
 }
